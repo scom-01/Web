@@ -10,26 +10,29 @@
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script type="text/babel">
     const root = document.getElementById("root");
-    const Title = () =>(
-        <h3 id ="title " onMouseEnter={()=>console.log("mouse enter")}>
-            Hello 
-        </h3>
-        );
-    const Btn = () => (
-        <button
-        style ={{backgroundColor : "tomato",
-        }}
-        onClick={()=>console.log("click")}>
-            Click me
-        </button>
-    )
     let counter = 0;
-    
-    const Container = ()=>(<div>
-        <Title />
-        <Btn />
-        </div>);
-    ReactDOM.render(<Container />, root);
+    function counterUp()
+    {
+        counter = counter +1;
+        reRender();
+    }
+    function reRender()
+    {
+        ReactDOM.render(<Container />, root);
+    }
+    function Container() {
+        return (
+        <div>
+            <h3>
+                Total Click : {counter} 
+            </h3>
+            <button onClick={counterUp}>
+                Click me
+            </button>
+        </div>
+        );
+    }
+    reRender();
 </script>
 
 </html>

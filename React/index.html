@@ -10,29 +10,21 @@
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script type="text/babel">
     const root = document.getElementById("root");
-    let counter = 0;
-    function counterUp()
-    {
-        counter = counter +1;
-        reRender();
-    }
-    function reRender()
-    {
-        ReactDOM.render(<Container />, root);
-    }
-    function Container() {
+
+    function App() {
+        const [counter, modifier] = React.useState(0);
         return (
         <div>
             <h3>
                 Total Click : {counter} 
             </h3>
-            <button onClick={counterUp}>
+            <button onClick={()=> modifier(counter + 1)}>
                 Click me
             </button>
         </div>
         );
     }
-    reRender();
+    ReactDOM.render(<App />, root);
 </script>
 
 </html>

@@ -7,7 +7,8 @@
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-    function App() {
+    function MinutesToHours() {
+      const convertValue = 60;
       const [amount, setAmount] = React.useState(0);
       const [flipped, setFlipped] = React.useState(false);
       const onChange = (event) => {
@@ -22,11 +23,14 @@
       };
       return (
         <div>
-          <h1>Super Converter</h1>
+          <h2>
+            You want to convert {flipped ? amount : amount * convertValue} to{" "}
+            {flipped ? Math.round(amount / convertValue) : amount}
+          </h2>
           <div>
             <label htmlFor="minutes">Minutes</label>
             <input
-              value={flipped ? amount : amount * 60}
+              value={flipped ? amount : amount * convertValue}
               id="minutes"
               placeholder="Minutes"
               type="number"
@@ -34,13 +38,10 @@
               disabled={!flipped}
             />
           </div>
-          <h2>
-            You want to convert {amount} to {Math.round(amount / 60)}
-          </h2>
           <div>
             <label htmlFor="hours">Hour</label>
             <input
-              value={flipped ? Math.round(amount / 60) : amount}
+              value={flipped ? (amount / convertValue).toFixed(3) : amount}
               id="hours"
               placeholder="Hour"
               type="number"
@@ -50,6 +51,69 @@
           </div>
           <button onClick={reset}>Reset</button>
           <button onClick={onFlip}>Flip</button>
+        </div>
+      );
+    }
+    function KmToMiles() {
+      const convertValue = 0.621371;
+      const [amount, setAmount] = React.useState(0);
+      const [flipped, setFlipped] = React.useState(false);
+      const onChange = (event) => {
+        setAmount(event.target.value);
+      };
+      const reset = () => {
+        setAmount(0);
+      };
+      const onFlip = () => {
+        reset();
+        setFlipped((isflip) => !isflip);
+      };
+      return (
+        <div>
+          <h2>
+            You want to convert{" "}
+            {flipped ? (amount / convertValue).toFixed(3) : amount} to{" "}
+            {flipped ? amount : (amount * convertValue).toFixed(3)}
+          </h2>
+          <div>
+            <label htmlFor="Km">Kilometers</label>
+            <input
+              value={flipped ? (amount / convertValue).toFixed(3) : amount}
+              id="Km"
+              placeholder="Kilometers"
+              type="number"
+              onChange={onChange}
+              disabled={flipped}
+            />
+          </div>
+          <div>
+            <label htmlFor="miles">Miles</label>
+            <input
+              value={flipped ? amount : (amount * convertValue).toFixed(3)}
+              id="miles"
+              placeholder="Miles"
+              type="number"
+              onChange={onChange}
+              disabled={!flipped}
+            />
+          </div>
+          <button onClick={reset}>Reset</button>
+          <button onClick={onFlip}>Flip</button>
+        </div>
+      );
+    }
+    function App() {
+      const [index, setIndex] = React.useState("0");
+      const onSelect = (event) => setIndex(event.target.value);
+      return (
+        <div>
+          <h1>Super Converter</h1>
+          <select value={index} onChange={onSelect}>
+            <option value="0"> Minutes & Hours</option>
+            <option value="1"> Km & Miles</option>
+          </select>
+          <hr />
+          {index === "0" ? <MinutesToHours /> : <KmToMiles />}
         </div>
       );
     }

@@ -1,30 +1,73 @@
-
 <!DOCTYPE html>
 <html>
-
-<body>
+  <body>
     <div id="root"></div>
-</body>
-<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-<script type="text/babel">
-    const root = document.getElementById("root");
-
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
     function App() {
-        const [counter, modifier] = React.useState(0);
-        return (
+      const [minutes, setMinutes] = React.useState(0);
+      const [hours, setHours] = React.useState(0);
+      const onChange = (event) => {
+        var min = document.getElementById("minutes");
+        if (min.disabled) {
+          setHours(event.target.value);
+          setMinutes(event.target.value * 60);
+        } else {
+          setMinutes(event.target.value);
+          setHours(event.target.value / 60);
+        }
+      };
+      const reset = () => {
+        setMinutes(0);
+        setHours(0);
+      };
+      const flip = () => {
+        var min = document.getElementById("minutes");
+        var hour = document.getElementById("hours");
+        if (min.disabled) {
+          hour.disabled = true;
+          min.disabled = false;
+        } else {
+          hour.disabled = false;
+          min.disabled = true;
+        }
+      };
+      return (
         <div>
-            <h3>
-                Total Click : {counter} 
-            </h3>
-            <button onClick={()=> modifier((value)=>value + 1)}>
-                Click me
-            </button>
+          <h1>Super Converter</h1>
+          <div>
+            <label htmlFor="minutes">Minutes</label>
+            <input
+              value={minutes}
+              id="minutes"
+              placeholder="Minutes"
+              type="number"
+              onChange={onChange}
+            />
+          </div>
+          <h2>
+            You want to convert {minutes} to {Math.round(hours)}
+          </h2>
+          <div>
+            <label htmlFor="hours">Hour</label>
+            <input
+              value={Math.round(hours)}
+              id="hours"
+              placeholder="Hour"
+              type="number"
+              onChange={onChange}
+              disabled
+            />
+          </div>
+          <button onClick={reset}>Reset</button>
+          <button onClick={flip}>Flip</button>
         </div>
-        );
+      );
     }
+    const root = document.getElementById("root");
     ReactDOM.render(<App />, root);
-</script>
-
+  </script>
 </html>

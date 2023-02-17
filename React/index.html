@@ -10,9 +10,10 @@
     function App() {
       const [minutes, setMinutes] = React.useState(0);
       const [hours, setHours] = React.useState(0);
+      const [flipped, setFlipped] = React.useState(false);
       const onChange = (event) => {
         var min = document.getElementById("minutes");
-        if (min.disabled) {
+        if (!flipped) {
           setHours(event.target.value);
           setMinutes(event.target.value * 60);
         } else {
@@ -24,17 +25,7 @@
         setMinutes(0);
         setHours(0);
       };
-      const flip = () => {
-        var min = document.getElementById("minutes");
-        var hour = document.getElementById("hours");
-        if (min.disabled) {
-          hour.disabled = true;
-          min.disabled = false;
-        } else {
-          hour.disabled = false;
-          min.disabled = true;
-        }
-      };
+      const onFlip = () => setFlipped((isflip) => !isflip);
       return (
         <div>
           <h1>Super Converter</h1>
@@ -46,6 +37,7 @@
               placeholder="Minutes"
               type="number"
               onChange={onChange}
+              disabled={!flipped}
             />
           </div>
           <h2>
@@ -59,11 +51,11 @@
               placeholder="Hour"
               type="number"
               onChange={onChange}
-              disabled
+              disabled={flipped}
             />
           </div>
           <button onClick={reset}>Reset</button>
-          <button onClick={flip}>Flip</button>
+          <button onClick={onFlip}>Flip</button>
         </div>
       );
     }

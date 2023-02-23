@@ -8,7 +8,7 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
   <script type="text/babel">
-    function Btn({ text, color, fontSize, onClick }) {
+    function Btn({ text, color = "white", fontSize, onClick }) {
       console.log(text, "was rendered");
       return (
         <button
@@ -30,6 +30,10 @@
       return <button>Confirm</button>;
     }
     const MemorizedBtn = React.memo(Btn);
+    Btn.propTypes = {
+      text: PropTypes.string,
+      fontSize: PropTypes.number,
+    };
     function App() {
       const [value, setValue] = React.useState("Save Changes");
       const changeValue = () =>
@@ -38,13 +42,8 @@
         );
       return (
         <div>
-          <MemorizedBtn
-            text={value}
-            color="white"
-            fontSize={18}
-            onClick={changeValue}
-          />
-          <MemorizedBtn text="Continue" color="black" big={false} />
+          <MemorizedBtn text={value} fontSize={18} onClick={changeValue} />
+          <MemorizedBtn text={14} />
         </div>
       );
     }

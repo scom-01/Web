@@ -1,10 +1,17 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 function Movie({ title, coverImg, summary, genres }) {
   return (
     <div>
       <h2>{title}</h2>
-      <p>{coverImg !== "" ? <img src={coverImg} alt="profile" /> : null}</p>
+      <p>
+        {coverImg !== "" ? (
+          <Link to="/movie">
+            <img src={coverImg} alt="profile" />
+          </Link>
+        ) : null}
+      </p>
 
       <p>{summary}</p>
       <ul>

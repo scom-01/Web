@@ -1,5 +1,5 @@
 {
-  "expoServerPort": 19000,
+  "expoServerPort": null,
   "packagerPort": 19000,
   "expoServerNgrokUrl": "https://mp-bgj.scom-99.scomweather.exp.direct",
   "packagerNgrokUrl": "https://mp-bgj.scom-99.scomweather.exp.direct",

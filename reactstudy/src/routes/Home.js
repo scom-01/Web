@@ -3,7 +3,7 @@ import Movie from "../components/Movie";
 
 function Home() {
   const [loading, setLoading] = useState(true);
-  const [movies, setMovies] = useState();
+  const [movies, setMovies] = useState([]);
   const getMovies = async () => {
     const json = await (
       await fetch(
@@ -26,6 +26,7 @@ function Home() {
           {movies.map((item) => (
             <Movie
               key={item.id}
+              id={item.id}
               title={item.title}
               coverImg={item.medium_cover_image}
               summary={item.summary}

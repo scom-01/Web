@@ -8,17 +8,3 @@
   border-radius: 10px;
   font: inherit;
 }
-:root {
-  --fonts: "Roboto", "Noto Sans KR", -apple-system, BlinkMacSystemFont,
-    "Helvetica Neue", "Apple SD Gothic Neo", Arial, sans-serif;
-  --body-min-width: 1420px;
-  --nav-height: 100px;
-  --color-red: #ff002a;
-  --color-text-black: #000000;
-  --site-bg-color: #ffffff;
-  --vh: 5.68px;
-  --vh-scale: 0.8;
-  --title-padding: 60px 0 40px;
-  --sub-title-padding: 100px 0 40px;
-  --title-fs: 50px;
-}

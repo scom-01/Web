@@ -45,6 +45,7 @@ a {
 }
 
 .policy_link {
+  margin: 0 0 40px;
 }
 .address {
   display: flex;

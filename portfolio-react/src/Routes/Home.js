@@ -108,15 +108,108 @@ function Home() {
             </SwiperSlide>
           </Swiper>
         </section>
-        <section>
-          {scrollTop ? (
-            ""
-          ) : (
-            <button onClick={scrollToTop} className={styles.btn_go_top}>
-              Top
-            </button>
-          )}
+        <section className={styles.slider}>
+          <Swiper
+            className={styles.swiper}
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={0}
+            slidesPerView={`auto`}
+            speed={500}
+            loop={true}
+            navigation
+            autoplay={{ delay: 10000 }}
+            pagination={{ clickable: true }}
+            scrollbar={{ draggable: true }}
+          >
+            <SwiperSlide className={styles.swiper_slide}>
+              <button>Slide1</button>
+            </SwiperSlide>
+            <SwiperSlide className={styles.swiper_slide}>
+              <button>Slide2</button>
+            </SwiperSlide>
+            <SwiperSlide className={styles.swiper_slide}>
+              <button>Slide3</button>
+            </SwiperSlide>
+            <SwiperSlide className={styles.swiper_slide}>
+              <button>Slide4</button>
+            </SwiperSlide>
+            <SwiperSlide className={styles.swiper_slide}>
+              <button>Slide5</button>
+            </SwiperSlide>
+          </Swiper>
         </section>
+
+        <div className={styles.go_top_wrapper}>
+          <section className={styles.slider}>
+            <Swiper
+              className={styles.swiper}
+              modules={[Navigation, Pagination, Autoplay]}
+              spaceBetween={0}
+              slidesPerView={`auto`}
+              speed={500}
+              loop={true}
+              navigation
+              autoplay={{ delay: 10000 }}
+              pagination={{ clickable: true }}
+              scrollbar={{ draggable: true }}
+            >
+              <SwiperSlide className={styles.swiper_slide}>
+                <button>Slide1</button>
+              </SwiperSlide>
+              <SwiperSlide className={styles.swiper_slide}>
+                <button>Slide2</button>
+              </SwiperSlide>
+              <SwiperSlide className={styles.swiper_slide}>
+                <button>Slide3</button>
+              </SwiperSlide>
+              <SwiperSlide className={styles.swiper_slide}>
+                <button>Slide4</button>
+              </SwiperSlide>
+              <SwiperSlide className={styles.swiper_slide}>
+                <button>Slide5</button>
+              </SwiperSlide>
+            </Swiper>
+          </section>
+          <section className={styles.slider}>
+            <Swiper
+              className={styles.swiper}
+              modules={[Navigation, Pagination, Autoplay]}
+              spaceBetween={0}
+              slidesPerView={`auto`}
+              speed={500}
+              loop={true}
+              navigation
+              autoplay={{ delay: 10000 }}
+              pagination={{ clickable: true }}
+              scrollbar={{ draggable: true }}
+            >
+              <SwiperSlide className={styles.swiper_slide}>
+                <button>Slide1</button>
+              </SwiperSlide>
+              <SwiperSlide className={styles.swiper_slide}>
+                <button>Slide2</button>
+              </SwiperSlide>
+              <SwiperSlide className={styles.swiper_slide}>
+                <button>Slide3</button>
+              </SwiperSlide>
+              <SwiperSlide className={styles.swiper_slide}>
+                <button>Slide4</button>
+              </SwiperSlide>
+              <SwiperSlide className={styles.swiper_slide}>
+                <button>Slide5</button>
+              </SwiperSlide>
+            </Swiper>
+          </section>
+          <div className={styles.btn_go_top_holder}>
+            {scrollTop ? (
+              ""
+            ) : (
+              <button onClick={scrollToTop} className={styles.btn_go_top}>
+                Top
+              </button>
+            )}
+          </div>
+        </div>
       </div>
       {show ? <Footer /> : ""}
     </div>

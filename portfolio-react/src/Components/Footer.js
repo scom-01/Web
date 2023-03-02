@@ -3,7 +3,7 @@ import styles from "./Footer.module.css";
 function Footer() {
   return (
     <div className={styles.Footer}>
-      <div className={styles.links}>Holder</div>
+      <div className={styles.links}>Link</div>
       <div className={styles.policy}>
         <div className={styles.policy_sub}>
           <Link to="/">about</Link>

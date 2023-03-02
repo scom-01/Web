@@ -19,6 +19,27 @@ function Screen() {
   useEffect(() => {
     getMovie();
   }, []);
+
+  const useInput = (initValue, vailddator) => {
+    const [value, setValue] = useState(initValue);
+    const onChange = (event) => {
+      const {
+        target: { value },
+      } = event;
+      let willUpdate = true;
+      if (typeof vailddator === "function") {
+        willUpdate = vailddator(value);
+      }
+
+      if (willUpdate) {
+        setValue(value);
+      }
+    };
+    return { value, onChange };
+  };
+  const maxLen = (value) => value.length <= 10;
+  const name = useInput("Mr.", maxLen);
+
   return (
     <div>
       {loading ? (
@@ -30,6 +51,7 @@ function Screen() {
           <h1>
             <Link to={`${process.env.PUBLIC_URL}/`}>Screen</Link>
           </h1>
+          <input placeholder="Name" {...name} />
           <Movie
             key={movie.id}
             id={movie.id}

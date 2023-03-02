@@ -11,3 +11,32 @@ body {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   background-color: #237ad1;
 }
+
+:root {
+  --fonts: "Roboto", "Noto Sans KR", -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", "Apple SD Gothic Neo", Arial, sans-serif;
+  --body-min-width: 1420px;
+  --nav-height: 100px;
+  --color-red: #ff002a;
+  --color-text-black: #000000;
+  --site-bg-color: #ffffff;
+  --vh: 5.68px;
+  --vh-scale: 0.8;
+  --title-padding: 60px 0 40px;
+  --sub-title-padding: 100px 0 40px;
+  --title-fs: 50px;
+}
+
+@media (max-width: 870px) {
+  :root {
+    --title-padding: 50px 0 30px;
+    --sub-title-padding: 60px 0 30px;
+    --title-fs: 33px;
+    --nav-height: 55px;
+  }
+}
+@media (max-width: 1419px) {
+  :root {
+    --body-min-width: 100%;
+  }
+}

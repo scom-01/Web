@@ -7,12 +7,12 @@
   padding: 0;
   margin: 0;
 }
-.header {
-  background-color: aqua;
-  justify-content: center;
-  height: 100px;
-}
 
+.nav_holder {
+  position: relative;
+  z-index: 15;
+  width: 100%;
+}
 .container {
   background-color: darkslategray;
   display: flex;
@@ -33,7 +33,7 @@
 }
 
 .swiper_slide {
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.438);
   width: 100%;
   display: flex !important;
   justify-content: center;

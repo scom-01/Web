@@ -13,10 +13,6 @@ import Nav from "../Components/Nav";
 import Footer from "../Components/Footer";
 
 function Home() {
-  const [show, setShow] = useState(true);
-  const btnClick = (event) => {
-    setShow(!show);
-  };
   const [scrollTop, setScrollTop] = useState(true);
   const scrollToTop = () => {
     window.scroll({
@@ -29,7 +25,6 @@ function Home() {
       if (window.scrollY > 100) {
         setScrollTop(false);
       } else setScrollTop(true);
-      console.log(window.scrollY);
     };
     window.addEventListener("scroll", handleShowBtn);
     return () => {
@@ -39,15 +34,11 @@ function Home() {
 
   return (
     <div className={styles.Home}>
-      {show ? <Nav /> : ""}
+      <div className={styles.nav_holder}>
+        <Nav />
+      </div>
 
       <div className={styles.container}>
-        <section>
-          <div>
-            <button onClick={btnClick}>{show ? "Hide" : "Show"}</button>
-          </div>
-        </section>
-
         <section className={styles.slider}>
           <Swiper
             className={styles.swiper}
@@ -211,7 +202,7 @@ function Home() {
           </div>
         </div>
       </div>
-      {show ? <Footer /> : ""}
+      <Footer />
     </div>
   );
 }

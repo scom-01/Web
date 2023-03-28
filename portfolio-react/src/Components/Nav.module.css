@@ -1,10 +1,51 @@
 .Nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  background-color: #fffffffd;
+  z-index: 10;
+  overflow: hidden;
+  width: 100%;
+}
+
+.Nav__logo {
+  font-size: 24px;
+  width: 50px;
+}
+.Nav__menu {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  text-transform: uppercase;
+}
+.Nav__menu li {
+  padding: 8px 12px;
+}
+.Nav__menu li:hover {
+  background-color: #d49466;
+  color: #ff002a;
+  border-radius: 4px;
+}
+.Nav__hambuger {
+  display: flex;
+  text-transform: uppercase;
+  padding-right: 20px;
+}
+
+.NavTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 55px;
   width: 100%;
-  position: absolute;
   overflow: hidden;
   transition: all 0.45s;
-  background-color: #fff3;
-  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
   font: inherit;
+}
+@media screen and (max-width: 1419px) {
+  .Nav__menu {
+    opacity: 0;
+  }
 }

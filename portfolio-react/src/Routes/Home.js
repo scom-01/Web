@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+//Swiper 모듈
 import { Navigation, Pagination, Autoplay } from "swiper";
 import styles from "./Home.module.css";
 import "swiper/swiper.min.css";
@@ -11,7 +12,10 @@ import "swiper/css/scrollbar";
 
 import Nav from "../Components/Nav";
 import Footer from "../Components/Footer";
-
+import "../styles.css";
+//타이틀 이미지
+import TitlePng from "./TGB_Title.png";
+import VillagePng from "./TGB_Village.png";
 function Home() {
   const [scrollTop, setScrollTop] = useState(true);
   const scrollToTop = () => {
@@ -33,11 +37,11 @@ function Home() {
   }, []);
 
   return (
+    //Home구성
     <div className={styles.Home}>
       <div className={styles.nav_holder}>
         <Nav />
       </div>
-
       <div className={styles.container}>
         <section className={styles.slider}>
           <Swiper
@@ -48,15 +52,19 @@ function Home() {
             speed={500}
             loop={true}
             navigation
-            autoplay={{ delay: 10000 }}
+            autoplay={{ delay: 10000 }} //10초후 넘김
             pagination={{ clickable: true }}
             scrollbar={{ draggable: true }}
           >
             <SwiperSlide className={styles.swiper_slide}>
-              <button>Slide1</button>
+              <div>
+                <img className={styles.swiper_slide_image} src={TitlePng} />
+              </div>
             </SwiperSlide>
             <SwiperSlide className={styles.swiper_slide}>
-              <button>Slide2</button>
+              <div>
+                <img className={styles.swiper_slide_image} src={VillagePng} />
+              </div>
             </SwiperSlide>
             <SwiperSlide className={styles.swiper_slide}>
               <button>Slide3</button>
@@ -191,6 +199,7 @@ function Home() {
               </SwiperSlide>
             </Swiper>
           </section>
+
           <div className={styles.btn_go_top_holder}>
             {scrollTop ? (
               ""

@@ -10,12 +10,13 @@ function Footer() {
           <Link to="/">games</Link>
           <Link to="/">news</Link>
           <Link to="/">investors</Link>
-          <br className={styles.br_mobile}></br>
           <Link to="/">careers</Link>
           <Link to="/">contact</Link>
         </div>
         <div className={styles.policy_link}>
-          <Link to="/">개인정보처리방침</Link>
+          <Link to="/" style={{ fontWeight: 700 }}>
+            개인정보처리방침
+          </Link>
           <Link to="/">영상정보처리기기 설치운영 관리방침</Link>
         </div>
       </div>

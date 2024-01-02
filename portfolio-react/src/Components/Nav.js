@@ -39,7 +39,7 @@ function Nav() {
     },
     {
       text: "games",
-      href: "/neowiz/games",
+      href: "/Games",
       subLinks: [
         { text: "전체", href: "/neowiz/games/all" },
         { text: "PC", href: "/neowiz/games/pc?list" },
@@ -50,26 +50,15 @@ function Nav() {
     },
     {
       text: "media",
-      href: "/neowiz/media",
+      href: "/Media",
       subLinks: [
-        { text: "보도자료", href: "/neowiz/media/press?page=1&size=10" },
+        { text: "TGB", href: "/neowiz/media/press?page=1&size=10" },
         { text: "네오위즈 NOW", href: "/neowiz/media/story?page=1&size=9" },
       ],
     },
     {
-      text: "investors",
-      href: "/neowiz/investors",
-      subLinks: [
-        { text: "주가", href: "/neowiz/investors#stock" },
-        { text: "재무", href: "/neowiz/investors#financial" },
-        { text: "실적", href: "/neowiz/investors#earningsrelease" },
-        { text: "공시", href: "/neowiz/investors#disclosure" },
-        { text: "공고", href: "/neowiz/investors#announce" },
-      ],
-    },
-    {
       text: "carreers",
-      href: "/neowiz/careers",
+      href: "/careers",
       subLinks: [
         { text: "CAREERS", href: "/neowiz/careers" },
         { text: "진행 중인 공고", href: "/neowiz/careers/recruit" },

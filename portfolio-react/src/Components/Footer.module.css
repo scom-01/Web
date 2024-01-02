@@ -12,6 +12,9 @@ a {
 
 .links {
   background-color: #0b0b0b;
+  color: #fff;
+  font-size: 20px;
+  padding: 10px 20px;
 }
 
 .policy {

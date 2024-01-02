@@ -3,11 +3,15 @@ import styles from "./Footer.module.css";
 function Footer() {
   return (
     <div className={styles.Footer}>
-      <div className={styles.links}>Link</div>
+      <div className={styles.links}>
+        <a href="https://www.youtube.com/watch?v=gghV7XPoSxE&ab_channel=Dev_KDH">
+          유튜브
+        </a>
+      </div>
       <div className={styles.policy}>
         <div className={styles.policy_sub}>
           <Link to="/">about</Link>
-          <Link to="/">games</Link>
+          <Link to="/Games">games</Link>
           <Link to="/">news</Link>
           <Link to="/">investors</Link>
           <Link to="/">careers</Link>

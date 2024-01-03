@@ -17,10 +17,10 @@ a {
   color: inherit;
   text-decoration: none;
 }
-.a:active,
-a:hover {
+.Nav a:active,
+.Nav a:hover {
   color: #ff002a;
-  transition: color 0.3s ease;
+  transition: color 0.45s ease;
 }
 .Nav_top_false {
   display: flex;
@@ -62,7 +62,6 @@ a:hover {
   font-size: 24px;
   text-transform: uppercase;
 }
-
 ul {
   list-style: none;
 }
@@ -145,6 +144,10 @@ ul {
 }
 .on {
   color: #ff002a;
+  cursor: pointer;
+}
+.off {
+  cursor: pointer;
 }
 .Nav__hambuger {
   align-self: flex-start;

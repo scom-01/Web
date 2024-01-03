@@ -62,16 +62,27 @@
   transform: translateZ(1px);
 }
 .swiper_slide_body .game_img {
-  opacity: 1;
+  opacity: 0;
   transform: translate(0);
   transition-delay: 0.3s !important;
   transition: all 1.5s;
 }
-.swiper_slide_body .game_img:active {
-  transform: translate(1);
+
+.swiper_slide_body .game_img > :nth-child(1) {
+  opacity: 1;
+  transform: translate(0);
+  transition-delay: 0.3s !important;
 }
 
-.swiper_slide_body .btns {
+.swiper_slide_body_game_Txt {
+  font-size: 200px;
+  color: #ff002a;
+  display: block;
+  padding: 125px;
+  white-space: nowrap;
+}
+
+.swiper_slide_body_btns {
   padding-top: 50px;
   display: flex;
   flex-direction: row;
@@ -96,6 +107,10 @@
   justify-content: center;
   align-items: center;
 }
+.swiper_btn_banner span {
+  z-index: 10;
+  color: #fff;
+}
 .swiper_btn_banner::after {
   content: "";
   display: block;
@@ -106,6 +121,65 @@
   left: 0;
   background-color: #ff002a;
   transform: translate(-100%);
+  transition: all 0.45s;
+}
+.swiper_btn_banner:hover:after {
+  transform: translate(0);
+}
+
+.section_screenshot {
+  display: flex;
+  position: relative;
+  background-color: #fff;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+}
+.section_item {
+  display: flex;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  flex-direction: row;
+}
+
+/* 짝수번째 */
+.section_item_even {
+  margin-right: auto;
+  display: flex;
+  padding-left: 10%;
+  left: 0;
+  justify-content: flex-start !important;
+}
+/* 홀수번째 */
+.section_item_odd {
+  margin-left: auto;
+  display: flex;
+  padding-right: 10%;
+  justify-content: center;
+}
+
+.section_item_even img {
+  width: 620px;
+  height: 100%;
+  padding: 0px 50px;
+  object-fit: contain;
+}
+.section_item_odd img {
+  width: 620px;
+  height: 100%;
+  padding: 0px 50px;
+  object-fit: contain;
+}
+.section_item_txt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 24px;
+  color: black;
+  width: auto;
+  height: 100%;
 }
 .footer {
   height: 50px;

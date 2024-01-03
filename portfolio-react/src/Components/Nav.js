@@ -1,10 +1,14 @@
 import styles from "./Nav.module.css";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+
 function Nav() {
   const [scrollTop, setScrollTop] = useState(false);
   const [screenWidth, setScreenWidth] = useState(true);
   const [LangKR, setLangKR] = useState(true);
+
+  const location = useLocation();
 
   const updateScroll = () => {
     if (window.scrollY <= 50) {
@@ -73,7 +77,7 @@ function Nav() {
         className={`${scrollTop ? styles.Nav_top_true : styles.Nav_top_false}`}
       >
         <Link to={"/"} className={styles.Nav__logo} color="black">
-          <span>Top</span>
+          <span>Home</span>
         </Link>
         {screenWidth && (
           <div className={styles.Nav__menu}>
@@ -82,7 +86,7 @@ function Nav() {
                 <Link to={menuItem.href}>
                   <span>{menuItem.text}</span>
                 </Link>
-                {menuItem.subLinks && (
+                {menuItem.subItems && (
                   <ul className={styles.Nav__submenu}>
                     {menuItem.subLinks.map((subLink) => (
                       <li key={subLink.text}>
@@ -101,14 +105,14 @@ function Nav() {
         {screenWidth ? (
           <div className={styles.Nav_lang}>
             <a
-              className={`${LangKR ? styles.on : ""}`}
+              className={`${LangKR ? styles.on : styles.off}`}
               onClick={!LangKR ? updateLang : undefined}
             >
               KR
             </a>
             <b style={{ color: "black" }}>|</b>
             <a
-              className={`${!LangKR ? styles.on : ""}`}
+              className={`${!LangKR ? styles.on : styles.off}`}
               onClick={LangKR ? updateLang : undefined}
             >
               EN

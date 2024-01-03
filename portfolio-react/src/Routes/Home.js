@@ -39,27 +39,45 @@ function Home() {
     };
   }, []);
 
-  const menuItems = [
+  const SlideItems = [
     {
+      idx: 0,
       text: "TGB",
       img_href: TGB_TitlePng,
       img: TGB_Title_Text_img,
-      subLinks: [
-        { text: "Games", href: "/Games/TGB#tgb" },
-        { text: "Play Video", href: "/neowiz/about#history" },
+      subItems: [
+        { id: 0, text: "Games", href: "/Games/TGB#tgb" },
+        { id: 1, text: "Play Video", href: "/neowiz/about#history" },
       ],
     },
     {
+      idx: 1,
       text: "HIM",
       img_href: HIM_Title_img,
       img: "",
-      subLinks: [
-        { text: "Games", href: "/Games/HIM" },
+      subItems: [
+        { id: 0, text: "Games", href: "/Games/HIM" },
         {
+          id: 1,
           text: "Play Video",
           href: "https://www.youtube.com/watch?v=gghV7XPoSxE&ab_channel=Dev_KDH",
         },
       ],
+    },
+  ];
+
+  const SectionItems = [
+    {
+      idx: 0,
+      text: "TGB_1",
+      img: TGB_TitlePng,
+      descript: "TGBTGBTGBTGBTGBTGBTGBTGBTGBTGBvvvvvvTGB",
+    },
+    {
+      idx: 1,
+      text: "TGB_2",
+      img: TGB_TitlePng,
+      descript: "TGBTGBTGBTGBTGBTGBTGBTGBTGBTGBTGBTGBTGBTGBTGBTGB",
     },
   ];
   return (
@@ -82,27 +100,28 @@ function Home() {
             pagination={{ clickable: true }}
             scrollbar={{ draggable: true }}
           >
-            {menuItems.map((menuItem) => (
-              <SwiperSlide className={styles.swiper_slide}>
+            {SlideItems.map((slideItem) => (
+              <SwiperSlide key={slideItem.idx} className={styles.swiper_slide}>
                 <div
                   className={styles.swiper_slide_image}
-                  style={{ backgroundImage: `url(${menuItem.img_href})` }}
+                  style={{ backgroundImage: `url(${slideItem.img_href})` }}
                 >
                   <section className={styles.swiper_slide_body}>
-                    {menuItem.img !== "" ? (
+                    {slideItem.img !== "" ? (
                       <img
                         className={"game_img"}
-                        src={menuItem.img}
+                        src={slideItem.img}
                         alt="Title_img"
                       ></img>
                     ) : (
                       <span className={styles.swiper_slide_body_game_Txt}>
-                        {menuItem.text}
+                        {slideItem.text}
                       </span>
                     )}
-                    <div className={"btns"}>
-                      {menuItem.subLinks.map((sublink) => (
+                    <div className={styles.swiper_slide_body_btns}>
+                      {slideItem.subItems.map((sublink) => (
                         <Link
+                          key={sublink.id}
                           to={sublink.href}
                           className={styles.swiper_btn_banner}
                         >
@@ -114,66 +133,34 @@ function Home() {
                 </div>
               </SwiperSlide>
             ))}
-
-            {/* <SwiperSlide className={styles.swiper_slide}>
-              <div
-                className={styles.swiper_slide_image}
-                style={{ backgroundImage: `url(${TGB_TitlePng})` }}
-              >
-                <section className={styles.swiper_slide_body}>
-                  <img
-                    className={"game_img"}
-                    src={TGB_Title_Text_img}
-                    alt="Title_img"
-                  ></img>
-                  <div className={"btns"}>
-                    <Link
-                      to={"/Games/TGB"}
-                      className={styles.swiper_btn_banner}
-                    >
-                      <span>Games</span>
-                    </Link>
-                    <Link to={"/Games"} className={styles.swiper_btn_banner}>
-                      <span>Play Video</span>
-                    </Link>
-                  </div>
-                </section>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiper_slide}>
-              <div
-                className={styles.swiper_slide_image}
-                style={{ backgroundImage: `url(${HIM_Title_img})` }}
-              >
-                <section className={styles.swiper_slide_body}>
-                  <span className={styles.swiper_slide_body_game_Txt}>HIM</span>
-                  <br />
-                  <div className={"btns"}>
-                    <Link
-                      to={"/Games/TGB"}
-                      className={styles.swiper_btn_banner}
-                    >
-                      <span>Games</span>
-                    </Link>
-                    <Link to={"/Games"} className={styles.swiper_btn_banner}>
-                      <span>Play Video</span>
-                    </Link>
-                  </div>
-                </section>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiper_slide}>
-              <button>Slide3</button>
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiper_slide}>
-              <button>Slide4</button>
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiper_slide}>
-              <button>Slide5</button>
-            </SwiperSlide> */}
           </Swiper>
         </section>
         <div className={styles.go_top_wrapper}>
+          <section className={styles.section_screenshot}>
+            {SectionItems.map((sectionItem, index) => (
+              <div key={sectionItem.id} className={styles.section_item}>
+                {index % 2 === 0 ? (
+                  <>
+                    <div className={styles.section_item_even}>
+                      <img src={sectionItem.img} alt="Image" />
+                      <div className={styles.section_item_txt}>
+                        {sectionItem.descript}
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className={styles.section_item_odd}>
+                      <div className={styles.section_item_txt}>
+                        {sectionItem.descript}
+                      </div>
+                      <img src={sectionItem.img} alt="Image" />
+                    </div>
+                  </>
+                )}
+              </div>
+            ))}
+          </section>
           <div className={styles.btn_go_top_holder}>
             {scrollTop ? (
               ""

@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 //Swiper 모듈
 import { Navigation, Pagination, Autoplay } from "swiper";
@@ -13,7 +15,7 @@ import "swiper/css/scrollbar";
 import Nav from "../Components/Nav";
 import Footer from "../Components/Footer";
 
-function Games() {
+function TGB() {
   const [scrollTop, setScrollTop] = useState(true);
   const scrollToTop = () => {
     window.scroll({
@@ -21,7 +23,19 @@ function Games() {
       behavior: "smooth",
     });
   };
+  const { gameId } = useParams();
+
   useEffect(() => {
+    const hash = window.location.hash;
+    console.log("Hash:", hash.split("#")[1]);
+    // 페이지가 로드되면 해당 ID로 스크롤
+    const targetSection = document.getElementById(hash.split("#")[1]);
+    if (targetSection) {
+      targetSection.scrollIntoView({
+        /*behavior: "smooth"*/
+      });
+    }
+
     const handleShowBtn = () => {
       if (window.scrollY > 100) {
         setScrollTop(false);
@@ -31,7 +45,7 @@ function Games() {
     return () => {
       window.removeEventListener("scroll", handleShowBtn);
     };
-  }, []);
+  }, [gameId]);
 
   return (
     //Home구성
@@ -166,7 +180,7 @@ function Games() {
               </SwiperSlide>
             </Swiper>
           </section>
-          <section className={styles.slider}>
+          <section className={styles.slider} id="tgb">
             <Swiper
               className={styles.swiper}
               modules={[Navigation, Pagination, Autoplay]}
@@ -213,4 +227,4 @@ function Games() {
   );
 }
 
-export default Games;
+export default TGB;

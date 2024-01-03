@@ -15,9 +15,10 @@ import Nav from "../Components/Nav";
 import Footer from "../Components/Footer";
 
 //타이틀 이미지
-import TitlePng from "./TGB_Title.png";
-import VillagePng from "./TGB_Village.png";
-import Title_Text_img from "./TGB_Text_img.png";
+import TGB_TitlePng from "../Images/TGB_Title.png";
+import TGB_Title_Text_img from "../Images/TGB_Text_img.png";
+import VillagePng from "../Images/TGB_Village.png";
+import HIM_Title_img from "../Images/HIM_Title.png";
 function Home() {
   const [scrollTop, setScrollTop] = useState(true);
   const scrollToTop = () => {
@@ -38,6 +39,29 @@ function Home() {
     };
   }, []);
 
+  const menuItems = [
+    {
+      text: "TGB",
+      img_href: TGB_TitlePng,
+      img: TGB_Title_Text_img,
+      subLinks: [
+        { text: "Games", href: "/Games/TGB#tgb" },
+        { text: "Play Video", href: "/neowiz/about#history" },
+      ],
+    },
+    {
+      text: "HIM",
+      img_href: HIM_Title_img,
+      img: "",
+      subLinks: [
+        { text: "Games", href: "/Games/HIM" },
+        {
+          text: "Play Video",
+          href: "https://www.youtube.com/watch?v=gghV7XPoSxE&ab_channel=Dev_KDH",
+        },
+      ],
+    },
+  ];
   return (
     //Home구성
     <div className={styles.Home}>
@@ -58,19 +82,55 @@ function Home() {
             pagination={{ clickable: true }}
             scrollbar={{ draggable: true }}
           >
-            <SwiperSlide className={styles.swiper_slide}>
+            {menuItems.map((menuItem) => (
+              <SwiperSlide className={styles.swiper_slide}>
+                <div
+                  className={styles.swiper_slide_image}
+                  style={{ backgroundImage: `url(${menuItem.img_href})` }}
+                >
+                  <section className={styles.swiper_slide_body}>
+                    {menuItem.img !== "" ? (
+                      <img
+                        className={"game_img"}
+                        src={menuItem.img}
+                        alt="Title_img"
+                      ></img>
+                    ) : (
+                      <span className={styles.swiper_slide_body_game_Txt}>
+                        {menuItem.text}
+                      </span>
+                    )}
+                    <div className={"btns"}>
+                      {menuItem.subLinks.map((sublink) => (
+                        <Link
+                          to={sublink.href}
+                          className={styles.swiper_btn_banner}
+                        >
+                          <span>{sublink.text}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </section>
+                </div>
+              </SwiperSlide>
+            ))}
+
+            {/* <SwiperSlide className={styles.swiper_slide}>
               <div
                 className={styles.swiper_slide_image}
-                style={{ backgroundImage: `url(${TitlePng})` }}
+                style={{ backgroundImage: `url(${TGB_TitlePng})` }}
               >
                 <section className={styles.swiper_slide_body}>
                   <img
                     className={"game_img"}
-                    src={Title_Text_img}
+                    src={TGB_Title_Text_img}
                     alt="Title_img"
                   ></img>
                   <div className={"btns"}>
-                    <Link to={"/Games"} className={styles.swiper_btn_banner}>
+                    <Link
+                      to={"/Games/TGB"}
+                      className={styles.swiper_btn_banner}
+                    >
                       <span>Games</span>
                     </Link>
                     <Link to={"/Games"} className={styles.swiper_btn_banner}>
@@ -83,8 +143,24 @@ function Home() {
             <SwiperSlide className={styles.swiper_slide}>
               <div
                 className={styles.swiper_slide_image}
-                style={{ backgroundImage: `url(${VillagePng})` }}
-              ></div>
+                style={{ backgroundImage: `url(${HIM_Title_img})` }}
+              >
+                <section className={styles.swiper_slide_body}>
+                  <span className={styles.swiper_slide_body_game_Txt}>HIM</span>
+                  <br />
+                  <div className={"btns"}>
+                    <Link
+                      to={"/Games/TGB"}
+                      className={styles.swiper_btn_banner}
+                    >
+                      <span>Games</span>
+                    </Link>
+                    <Link to={"/Games"} className={styles.swiper_btn_banner}>
+                      <span>Play Video</span>
+                    </Link>
+                  </div>
+                </section>
+              </div>
             </SwiperSlide>
             <SwiperSlide className={styles.swiper_slide}>
               <button>Slide3</button>
@@ -94,132 +170,10 @@ function Home() {
             </SwiperSlide>
             <SwiperSlide className={styles.swiper_slide}>
               <button>Slide5</button>
-            </SwiperSlide>
+            </SwiperSlide> */}
           </Swiper>
         </section>
-        <section className={styles.slider}>
-          <Swiper
-            className={styles.swiper}
-            modules={[Navigation, Pagination, Autoplay]}
-            spaceBetween={0}
-            slidesPerView={`auto`}
-            speed={500}
-            loop={true}
-            navigation
-            autoplay={{ delay: 10000 }}
-            pagination={{ clickable: true }}
-            scrollbar={{ draggable: true }}
-          >
-            <SwiperSlide className={styles.swiper_slide}>
-              <button>Slide1</button>
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiper_slide}>
-              <button>Slide2</button>
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiper_slide}>
-              <button>Slide3</button>
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiper_slide}>
-              <button>Slide4</button>
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiper_slide}>
-              <button>Slide5</button>
-            </SwiperSlide>
-          </Swiper>
-        </section>
-        <section className={styles.slider}>
-          <Swiper
-            className={styles.swiper}
-            modules={[Navigation, Pagination, Autoplay]}
-            spaceBetween={0}
-            slidesPerView={`auto`}
-            speed={500}
-            loop={true}
-            navigation
-            autoplay={{ delay: 10000 }}
-            pagination={{ clickable: true }}
-            scrollbar={{ draggable: true }}
-          >
-            <SwiperSlide className={styles.swiper_slide}>
-              <button>Slide1</button>
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiper_slide}>
-              <button>Slide2</button>
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiper_slide}>
-              <button>Slide3</button>
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiper_slide}>
-              <button>Slide4</button>
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiper_slide}>
-              <button>Slide5</button>
-            </SwiperSlide>
-          </Swiper>
-        </section>
-
         <div className={styles.go_top_wrapper}>
-          <section className={styles.slider}>
-            <Swiper
-              className={styles.swiper}
-              modules={[Navigation, Pagination, Autoplay]}
-              spaceBetween={0}
-              slidesPerView={`auto`}
-              speed={500}
-              loop={true}
-              navigation
-              autoplay={{ delay: 10000 }}
-              pagination={{ clickable: true }}
-              scrollbar={{ draggable: true }}
-            >
-              <SwiperSlide className={styles.swiper_slide}>
-                <button>Slide1</button>
-              </SwiperSlide>
-              <SwiperSlide className={styles.swiper_slide}>
-                <button>Slide2</button>
-              </SwiperSlide>
-              <SwiperSlide className={styles.swiper_slide}>
-                <button>Slide3</button>
-              </SwiperSlide>
-              <SwiperSlide className={styles.swiper_slide}>
-                <button>Slide4</button>
-              </SwiperSlide>
-              <SwiperSlide className={styles.swiper_slide}>
-                <button>Slide5</button>
-              </SwiperSlide>
-            </Swiper>
-          </section>
-          <section className={styles.slider}>
-            <Swiper
-              className={styles.swiper}
-              modules={[Navigation, Pagination, Autoplay]}
-              spaceBetween={0}
-              slidesPerView={`auto`}
-              speed={500}
-              loop={true}
-              navigation
-              autoplay={{ delay: 10000 }}
-              pagination={{ clickable: true }}
-              scrollbar={{ draggable: true }}
-            >
-              <SwiperSlide className={styles.swiper_slide}>
-                <button>Slide1</button>
-              </SwiperSlide>
-              <SwiperSlide className={styles.swiper_slide}>
-                <button>Slide2</button>
-              </SwiperSlide>
-              <SwiperSlide className={styles.swiper_slide}>
-                <button>Slide3</button>
-              </SwiperSlide>
-              <SwiperSlide className={styles.swiper_slide}>
-                <button>Slide4</button>
-              </SwiperSlide>
-              <SwiperSlide className={styles.swiper_slide}>
-                <button>Slide5</button>
-              </SwiperSlide>
-            </Swiper>
-          </section>
-
           <div className={styles.btn_go_top_holder}>
             {scrollTop ? (
               ""

@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Routes/Home";
-import Games from "./Routes/Games";
+import TGB from "./Routes/TGB";
+import HIM from "./Routes/HIM";
 
 function App() {
   console.log("render");
@@ -8,7 +9,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Games" element={<Games />} />
+        <Route path="/Games/TGB" element={<TGB />} />
+        <Route path="/Games/HIM" element={<HIM />} />
       </Routes>
     </Router>
   );

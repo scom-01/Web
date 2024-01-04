@@ -1,14 +1,11 @@
 import styles from "./Nav.module.css";
 import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 function Nav() {
   const [scrollTop, setScrollTop] = useState(false);
   const [screenWidth, setScreenWidth] = useState(true);
   const [LangKR, setLangKR] = useState(true);
-
-  const location = useLocation();
 
   const updateScroll = () => {
     if (window.scrollY <= 50) {
@@ -86,7 +83,7 @@ function Nav() {
                 <Link to={menuItem.href}>
                   <span>{menuItem.text}</span>
                 </Link>
-                {menuItem.subItems && (
+                {menuItem.subLinks && (
                   <ul className={styles.Nav__submenu}>
                     {menuItem.subLinks.map((subLink) => (
                       <li key={subLink.text}>

@@ -17,8 +17,8 @@ import Footer from "../Components/Footer";
 //타이틀 이미지
 import TGB_TitlePng from "../Images/TGB_Title.png";
 import TGB_Title_Text_img from "../Images/TGB_Text_img.png";
-import VillagePng from "../Images/TGB_Village.png";
 import HIM_Title_img from "../Images/HIM_Title.png";
+import PeaceMaker_Title_img from "../Images/PeaceMaker_Title.png";
 function Home() {
   const [scrollTop, setScrollTop] = useState(true);
   const scrollToTop = () => {
@@ -46,7 +46,11 @@ function Home() {
       img_href: TGB_TitlePng,
       img: TGB_Title_Text_img,
       subItems: [
-        { id: 0, text: "Games", href: "/Games/TGB#tgb" },
+        {
+          id: 0,
+          text: "Games",
+          href: "https://www.dropbox.com/scl/fi/5ce8135szgsmxv08ax3i7/TGB_build.exe?rlkey=8ic8glddtv6nyyc40vrnn52az&dl=0",
+        },
         { id: 1, text: "Play Video", href: "/neowiz/about#history" },
       ],
     },
@@ -56,11 +60,28 @@ function Home() {
       img_href: HIM_Title_img,
       img: "",
       subItems: [
-        { id: 0, text: "Games", href: "/Games/HIM" },
+        {
+          id: 0,
+          text: "Games",
+          href: "https://www.dropbox.com/scl/fi/h1u2ug3lizfh7dzbuomtt/HIM_buildfile.exe?rlkey=96x9o3gcv3ensu3buq4s13yoj&dl=0",
+        },
         {
           id: 1,
           text: "Play Video",
           href: "https://www.youtube.com/watch?v=gghV7XPoSxE&ab_channel=Dev_KDH",
+        },
+      ],
+    },
+    {
+      idx: 2,
+      text: "PieceMaker",
+      img_href: PeaceMaker_Title_img,
+      img: "",
+      subItems: [
+        {
+          id: 0,
+          text: "Play Video",
+          href: "https://www.youtube.com/watch?v=ixFyweC7xUc&ab_channel=Dev_KDH",
         },
       ],
     },
@@ -114,9 +135,7 @@ function Home() {
                         alt="Title_img"
                       ></img>
                     ) : (
-                      <span className={styles.swiper_slide_body_game_Txt}>
-                        {slideItem.text}
-                      </span>
+                      <div className={styles.swiper_btn_Transparent}></div>
                     )}
                     <div className={styles.swiper_slide_body_btns}>
                       {slideItem.subItems.map((sublink) => (

@@ -111,6 +111,11 @@
   z-index: 10;
   color: #fff;
 }
+
+.swiper_btn_Transparent {
+  width: 500px;
+  height: 500px;
+}
 .swiper_btn_banner::after {
   content: "";
   display: block;

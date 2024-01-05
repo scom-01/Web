@@ -33,6 +33,8 @@ body {
     --sub-title-padding: 60px 0 30px;
     --title-fs: 33px;
     --nav-height: 55px;
+    --title-padding: 60px 0 40px;
+    --sub-title-padding: 100px 0 40px;
   }
 }
 @media (max-width: 1419px) {

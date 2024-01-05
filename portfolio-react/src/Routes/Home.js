@@ -14,11 +14,8 @@ import "swiper/css/scrollbar";
 import Nav from "../Components/Nav";
 import Footer from "../Components/Footer";
 
-//타이틀 이미지
-import TGB_TitlePng from "../Images/TGB_Title.png";
-import TGB_Title_Text_img from "../Images/TGB_Text_img.png";
-import HIM_Title_img from "../Images/HIM_Title.png";
-import PeaceMaker_Title_img from "../Images/PeaceMaker_Title.png";
+import { imageData, linkData } from "../Data/Data"; // 경로는 실제 파일 위치에 따라 수정
+
 function Home() {
   const [scrollTop, setScrollTop] = useState(true);
   const scrollToTop = () => {
@@ -43,45 +40,45 @@ function Home() {
     {
       idx: 0,
       text: "TGB",
-      img_href: TGB_TitlePng,
-      img: TGB_Title_Text_img,
+      img_href: imageData.TGB_Title_img.imageUrl,
+      img: imageData.TGB_Title_Text_img.imageUrl,
       subItems: [
         {
           id: 0,
           text: "Games",
-          href: "https://www.dropbox.com/scl/fi/5ce8135szgsmxv08ax3i7/TGB_build.exe?rlkey=8ic8glddtv6nyyc40vrnn52az&dl=0",
+          href: linkData.TGB_Download,
         },
-        { id: 1, text: "Play Video", href: "/neowiz/about#history" },
+        { id: 1, text: "Play Video", href: linkData.TGB_Video.linkUrl },
       ],
     },
     {
       idx: 1,
       text: "HIM",
-      img_href: HIM_Title_img,
+      img_href: imageData.HIM_Title_img.imageUrl,
       img: "",
       subItems: [
         {
           id: 0,
           text: "Games",
-          href: "https://www.dropbox.com/scl/fi/h1u2ug3lizfh7dzbuomtt/HIM_buildfile.exe?rlkey=96x9o3gcv3ensu3buq4s13yoj&dl=0",
+          href: linkData.HIM_Download.linkUrl,
         },
         {
           id: 1,
           text: "Play Video",
-          href: "https://www.youtube.com/watch?v=gghV7XPoSxE&ab_channel=Dev_KDH",
+          href: linkData.HIM_Video.linkUrl,
         },
       ],
     },
     {
       idx: 2,
       text: "PieceMaker",
-      img_href: PeaceMaker_Title_img,
+      img_href: imageData.PeaceMaker_Title_img.imageUrl,
       img: "",
       subItems: [
         {
           id: 0,
           text: "Play Video",
-          href: "https://www.youtube.com/watch?v=ixFyweC7xUc&ab_channel=Dev_KDH",
+          href: linkData.PieceMaker_Video.linkUrl,
         },
       ],
     },
@@ -91,13 +88,13 @@ function Home() {
     {
       idx: 0,
       text: "TGB_1",
-      img: TGB_TitlePng,
+      img: imageData.TGB_Title_img.imageUrl,
       descript: "TGBTGBTGBTGBTGBTGBTGBTGBTGBTGBvvvvvvTGB",
     },
     {
       idx: 1,
       text: "TGB_2",
-      img: TGB_TitlePng,
+      img: imageData.TGB_Title_img.imageUrl,
       descript: "TGBTGBTGBTGBTGBTGBTGBTGBTGBTGBTGBTGBTGBTGBTGBTGB",
     },
   ];
@@ -125,7 +122,9 @@ function Home() {
               <SwiperSlide key={slideItem.idx} className={styles.swiper_slide}>
                 <div
                   className={styles.swiper_slide_image}
-                  style={{ backgroundImage: `url(${slideItem.img_href})` }}
+                  style={{
+                    backgroundImage: `url(${slideItem.img_href})`,
+                  }}
                 >
                   <section className={styles.swiper_slide_body}>
                     {slideItem.img !== "" ? (
@@ -141,7 +140,7 @@ function Home() {
                       {slideItem.subItems.map((sublink) => (
                         <Link
                           key={sublink.id}
-                          to={sublink.href}
+                          to={sublink.href.linkUrl}
                           className={styles.swiper_btn_banner}
                         >
                           <span>{sublink.text}</span>
@@ -161,7 +160,7 @@ function Home() {
                 {index % 2 === 0 ? (
                   <>
                     <div className={styles.section_item_even}>
-                      <img src={sectionItem.img} alt="Image" />
+                      <img src={sectionItem.img} alt={sectionItem.img} />
                       <div className={styles.section_item_txt}>
                         {sectionItem.descript}
                       </div>
@@ -173,7 +172,7 @@ function Home() {
                       <div className={styles.section_item_txt}>
                         {sectionItem.descript}
                       </div>
-                      <img src={sectionItem.img} alt="Image" />
+                      <img src={sectionItem.img} alt={sectionItem.img} />
                     </div>
                   </>
                 )}

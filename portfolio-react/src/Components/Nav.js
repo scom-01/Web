@@ -1,12 +1,15 @@
 import styles from "./Nav.module.css";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { imageData, linkData } from "../Data/Data"; // 경로는 실제 파일 위치에 따라 수정
 
 function Nav() {
   const [scrollTop, setScrollTop] = useState(false);
   const [screenWidth, setScreenWidth] = useState(true);
   const [LangKR, setLangKR] = useState(true);
-
+  const location = useLocation();
+  const pathName = location.pathname;
   const updateScroll = () => {
     if (window.scrollY <= 50) {
       setScrollTop(true);
@@ -32,29 +35,28 @@ function Nav() {
   const menuItems = [
     {
       text: "about",
-      href: "/neowiz/about",
-      subLinks: [
-        { text: "we are", href: "/neowiz/about#we" },
-        { text: "연혁", href: "/neowiz/about#history" },
-      ],
+      href: "/About",
+      subLinks: [{ text: "me", href: "/About" }],
     },
     {
       text: "games",
       href: "/Games",
       subLinks: [
-        { text: "전체", href: "/neowiz/games/all" },
-        { text: "PC", href: "/neowiz/games/pc?list" },
-        { text: "모바일", href: "/neowiz/games/mobile?list" },
-        { text: "콘솔", href: "/neowiz/games/console?list" },
-        { text: "신규", href: "/neowiz/games/new?list" },
+        { text: "TGB", href: "/Games/TGB" },
+        { text: "HIM", href: "/Games/HIM" },
+        { text: "Piecemaker", href: "/neowiz/games/mobile?list" },
       ],
     },
     {
       text: "media",
       href: "/Media",
       subLinks: [
-        { text: "TGB", href: "/neowiz/media/press?page=1&size=10" },
-        { text: "네오위즈 NOW", href: "/neowiz/media/story?page=1&size=9" },
+        { text: "TGB", href: linkData.TGB_Video.linkUrl },
+        { text: "HIM", href: linkData.HIM_Video.linkUrl },
+        {
+          text: "Piecemaker",
+          href: linkData.PieceMaker_Video.linkUrl,
+        },
       ],
     },
     {
@@ -71,7 +73,11 @@ function Nav() {
   return (
     <div className={styles.Nav}>
       <div
-        className={`${scrollTop ? styles.Nav_top_true : styles.Nav_top_false}`}
+        className={`${
+          pathName === "/" && scrollTop
+            ? styles.Nav_top_true
+            : styles.Nav_top_false
+        }`}
       >
         <Link to={"/"} className={styles.Nav__logo} color="black">
           <span>Home</span>

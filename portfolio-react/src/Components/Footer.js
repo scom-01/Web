@@ -23,7 +23,7 @@ function Footer() {
   return (
     <div className={styles.Footer}>
       <div className={styles.links}>
-        <span>플레이 영상 :</span>
+        <span>플레이 영상 : </span>
         {GameLinks.map((link) => (
           <span key={link.idx}>
             <a href={link.img_href}>{link.text}</a>
@@ -46,7 +46,7 @@ function Footer() {
         </div>
       </div>
       <div className={styles.address_info}>
-        <div className={styles.address}>@Copyright 2023</div>
+        <div className={styles.address}>@Copyright 2024</div>
       </div>
     </div>
   );

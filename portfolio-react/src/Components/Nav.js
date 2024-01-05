@@ -2,7 +2,7 @@ import styles from "./Nav.module.css";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { imageData, linkData } from "../Data/Data"; // 경로는 실제 파일 위치에 따라 수정
+import { linkData } from "../Data/Data"; // 경로는 실제 파일 위치에 따라 수정
 
 function Nav() {
   const [scrollTop, setScrollTop] = useState(false);
@@ -40,7 +40,7 @@ function Nav() {
     },
     {
       text: "games",
-      href: "/Games",
+      href: "/",
       subLinks: [
         { text: "TGB", href: "/Games/TGB" },
         { text: "HIM", href: "/Games/HIM" },
@@ -49,7 +49,7 @@ function Nav() {
     },
     {
       text: "media",
-      href: "/Media",
+      href: "/",
       subLinks: [
         { text: "TGB", href: linkData.TGB_Video.linkUrl },
         { text: "HIM", href: linkData.HIM_Video.linkUrl },
@@ -59,7 +59,7 @@ function Nav() {
         },
       ],
     },
-    { text: "contact me", href: "/neowiz/contact-us" },
+    { text: "contact me", href: linkData.self_introduction },
   ];
 
   return (

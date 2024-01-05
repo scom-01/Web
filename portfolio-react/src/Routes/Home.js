@@ -87,15 +87,24 @@ function Home() {
   const SectionItems = [
     {
       idx: 0,
-      text: "TGB_1",
-      img: imageData.TGB_Title_img.imageUrl,
-      descript: "TGBTGBTGBTGBTGBTGBTGBTGBTGBTGBvvvvvvTGB",
+      text: "PeaceMaker",
+      img: imageData.PeaceMaker_Title_img.imageUrl,
+      descript:
+        "첫 팀 프로젝트 과제로 제작한 PeaceMaker입니다. 클래시오브클랜같은 전략 디펜스 게임을 목표로 제작되었습니다. 제작 시 짧은 개발 기간과 인원이탈로 인해 어려움이 많았습니다. 학원생들로만 구성되었기 때문에 경험 또한 부족했습니다. 하지만 강사님께서 리소스와 도움을 주셔서 주어진 기간내에 잘 마무리 할 수 있었습니다.",
     },
     {
       idx: 1,
-      text: "TGB_2",
+      text: "HIM",
+      img: imageData.HIM_Title_img.imageUrl,
+      descript:
+        "아웃라스트, 바이오하자드같은 1인칭 스릴러 게임을 생각하고 처음으로 1인 개발한 공포 게임인 HIM입니다. Draw Call, Object Pooling, 캐릭터의 움직임과 적의 이동 동선 및 애니메이션, Enemy AI 등을 처음으로 접한 게임입니다. 모든 코드는 에셋없이 직접 제작하였습니다.",
+    },
+    {
+      idx: 2,
+      text: "TGB",
       img: imageData.TGB_Title_img.imageUrl,
-      descript: "TGBTGBTGBTGBTGBTGBTGBTGBTGBTGBTGBTGBTGBTGBTGBTGB",
+      descript:
+        "Skul: The Hero Slayer 에 영감을 받아 만든 1인 개발한 2D Platformer Roguelike 게임인 The Greatest Blacksmith 입니다. 게임을 개발하는 과정이 마치 대장간에서 제련하는 대장장이와 같다는 생각으로 시작하였습니다. 제작 당시 얻을 수 있는 리소스를 기반으로 줄거리를 구성하였고 훈련기관 당시 역기획한 Skul에 영감을 받아 플레이스타일을 정했습니다. 2D 도트 그래픽, 훌륭한 타격감을 구현하고자 리소스 세팅과 코드는 모두 직접 구현하였습니다.",
     },
   ];
   return (
@@ -154,25 +163,29 @@ function Home() {
           </Swiper>
         </section>
         <div className={styles.go_top_wrapper}>
-          <section className={styles.section_screenshot}>
-            {SectionItems.map((sectionItem, index) => (
-              <div key={sectionItem.id} className={styles.section_item}>
+          <section className={styles.subpage_container}>
+            {SectionItems.map((Item, index) => (
+              <div>
                 {index % 2 === 0 ? (
                   <>
-                    <div className={styles.section_item_even}>
-                      <img src={sectionItem.img} alt={sectionItem.img} />
-                      <div className={styles.section_item_txt}>
-                        {sectionItem.descript}
-                      </div>
+                    <div className={styles.content1}>
+                      <img
+                        className={styles.about1}
+                        src={Item.img}
+                        alt={Item.img}
+                      />
+                      <p className={styles.content_text}>{Item.descript}</p>
                     </div>
                   </>
                 ) : (
                   <>
-                    <div className={styles.section_item_odd}>
-                      <div className={styles.section_item_txt}>
-                        {sectionItem.descript}
-                      </div>
-                      <img src={sectionItem.img} alt={sectionItem.img} />
+                    <div className={styles.content2}>
+                      <p className={styles.content_text}>{Item.descript}</p>
+                      <img
+                        className={styles.about1}
+                        src={Item.img}
+                        alt={Item.img}
+                      />
                     </div>
                   </>
                 )}

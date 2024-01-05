@@ -1,5 +1,5 @@
 .Home {
-  background-color: coral;
+  background-color: white;
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -43,6 +43,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  padding-bottom: 100px;
 }
 .swiper_slide_image {
   width: 100%;
@@ -220,18 +221,105 @@ h1 {
   z-index: 5;
 }
 .go_top_wrapper {
+  background-color: white;
   position: relative;
   z-index: 5;
   width: 100%;
+  padding-top: 100px;
 }
 .imgbtn {
   height: 100%;
   width: 100%;
 }
 
+.subpage_container {
+  background-color: white;
+  min-height: auto;
+}
+.subpage_container {
+  box-sizing: border-box;
+  width: var(--body-min-width);
+  min-height: calc(100vh - var(--nav-height) * 2);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.subpage_container .section_title {
+  padding: var(--title-padding);
+  font-size: 56px;
+  font-weight: bold;
+}
+.subpage_container .main_content {
+  font-size: 30px;
+  text-align: center;
+  line-height: 1.5;
+  padding: 138px 0;
+}
+.subpage_container .section_img {
+  vertical-align: top;
+  max-width: 100%;
+}
+.subpage_container p {
+  font-size: 22px;
+  color: black;
+}
+.content1 .content_text {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 720px;
+  padding-left: 50px;
+  line-height: 1.7;
+}
+.content2 .content_text {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 720px;
+  padding-right: 50px;
+  line-height: 1.7;
+}
+.subpage_container .content1,
+.subpage_container .content2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: 100%;
+  padding-bottom: 100px;
+}
+
+.about1 {
+  width: 580px;
+  height: 280px;
+  margin-right: 20px;
+}
 @media (max-width: 870px) {
   .slider {
     height: 100vh;
     transition: height 0.25s;
+  }
+
+  .subpage_container {
+    padding: 0 20px;
+  }
+  .subpage_container img {
+    width: 100%;
+  }
+  .subpage_container .section_title {
+    font-size: 30px;
+  }
+  .subpage_container .content2 > .content_text {
+    order: 2;
+  }
+
+  .subpage_container .content1,
+  .subpage_container .content2 {
+    flex-direction: column;
+    padding-bottom: 20px;
+  }
+  .subpage_container .content_text {
+    width: auto;
+    text-align: center;
+    padding: 35px 0;
+    font-size: 14px;
   }
 }

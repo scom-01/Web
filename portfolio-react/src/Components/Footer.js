@@ -1,22 +1,42 @@
 import { Link } from "react-router-dom";
 import styles from "./Footer.module.css";
+import { imageData, linkData } from "../Data/Data"; // 경로는 실제 파일 위치에 따라 수정
 
 function Footer() {
+  const GameLinks = [
+    {
+      idx: 0,
+      text: "TGB",
+      img_href: linkData.TGB_Video.linkUrl,
+    },
+    {
+      idx: 1,
+      text: "HIM",
+      img_href: linkData.HIM_Video.linkUrl,
+    },
+    {
+      idx: 2,
+      text: "PeaceMaker",
+      img_href: linkData.PeaceMaker_Video.linkUrl,
+    },
+  ];
   return (
     <div className={styles.Footer}>
       <div className={styles.links}>
-        <a href="https://www.youtube.com/watch?v=gghV7XPoSxE&ab_channel=Dev_KDH">
-          유튜브
-        </a>
+        <span>플레이 영상 :</span>
+        {GameLinks.map((link) => (
+          <span key={link.idx}>
+            <a href={link.img_href}>{link.text}</a>
+            {link.idx >= GameLinks.length - 1 ? "" : <span>, </span>}
+          </span>
+        ))}
       </div>
       <div className={styles.policy}>
         <div className={styles.policy_sub}>
-          <Link to="/">about</Link>
+          <Link to="/About">about</Link>
           <Link to="/Games">games</Link>
-          <Link to="/">news</Link>
-          <Link to="/">investors</Link>
           <Link to="/">careers</Link>
-          <Link to="/">contact</Link>
+          <Link to="/">contact me</Link>
         </div>
         <div className={styles.policy_link}>
           <Link to="/" style={{ fontWeight: 700 }}>

@@ -44,7 +44,7 @@ function Nav() {
       subLinks: [
         { text: "TGB", href: "/Games/TGB" },
         { text: "HIM", href: "/Games/HIM" },
-        { text: "Piecemaker", href: "/neowiz/games/mobile?list" },
+        { text: "Peacemaker", href: "/neowiz/games/mobile?list" },
       ],
     },
     {
@@ -54,17 +54,9 @@ function Nav() {
         { text: "TGB", href: linkData.TGB_Video.linkUrl },
         { text: "HIM", href: linkData.HIM_Video.linkUrl },
         {
-          text: "Piecemaker",
-          href: linkData.PieceMaker_Video.linkUrl,
+          text: "Peacemaker",
+          href: linkData.PeaceMaker_Video.linkUrl,
         },
-      ],
-    },
-    {
-      text: "carreers",
-      href: "/careers",
-      subLinks: [
-        { text: "CAREERS", href: "/neowiz/careers" },
-        { text: "진행 중인 공고", href: "/neowiz/careers/recruit" },
       ],
     },
     { text: "contact me", href: "/neowiz/contact-us" },

@@ -71,14 +71,14 @@ function Home() {
     },
     {
       idx: 2,
-      text: "PieceMaker",
+      text: "PeaceMaker",
       img_href: imageData.PeaceMaker_Title_img.imageUrl,
       img: "",
       subItems: [
         {
           id: 0,
           text: "Play Video",
-          href: linkData.PieceMaker_Video.linkUrl,
+          href: linkData.PeaceMaker_Video.linkUrl,
         },
       ],
     },

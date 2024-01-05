@@ -41,9 +41,13 @@ const linkData = {
     linkUrl: "https://www.youtube.com/watch?v=gghV7XPoSxE&ab_channel=Dev_KDH",
     linkText: "HIM 플레이 영상",
   },
-  PieceMaker_Video: {
+  PeaceMaker_Video: {
     linkUrl: "https://www.youtube.com/watch?v=ixFyweC7xUc&ab_channel=Dev_KDH",
-    linkText: "PieceMaker 플레이 영상",
+    linkText: "PeaceMaker 플레이 영상",
+  },
+  self_introduction: {
+    linkUrl: "https://www.youtube.com/watch?v=ixFyweC7xUc&ab_channel=Dev_KDH",
+    linkText: "자기소개서 다운로드 링크",
   },
 };
 

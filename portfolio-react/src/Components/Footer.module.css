@@ -16,6 +16,12 @@ a {
   font-size: 20px;
   padding: 10px 20px;
 }
+.videolink::after {
+  content: ", ";
+}
+.videolink:last-child::after {
+  content: " ";
+}
 
 .policy {
   display: flex;

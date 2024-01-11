@@ -40,11 +40,11 @@ function Nav() {
     },
     {
       text: "games",
-      href: "/",
+      href: "/Games",
       subLinks: [
-        { text: "TGB", href: "/Games/TGB" },
-        { text: "HIM", href: "/Games/HIM" },
-        { text: "Peacemaker", href: "/neowiz/games/mobile?list" },
+        { text: "TGB", href: "/Games#TGB" },
+        { text: "HIM", href: "/Games#HIM" },
+        { text: "PeaceMaker", href: "/Games#PeaceMaker" },
       ],
     },
     {
@@ -54,12 +54,12 @@ function Nav() {
         { text: "TGB", href: linkData.TGB_Video.linkUrl },
         { text: "HIM", href: linkData.HIM_Video.linkUrl },
         {
-          text: "Peacemaker",
+          text: "PeaceMaker",
           href: linkData.PeaceMaker_Video.linkUrl,
         },
       ],
     },
-    { text: "contact me", href: linkData.self_introduction },
+    { text: "contact me", href: linkData.self_introduction.linkUrl },
   ];
 
   return (

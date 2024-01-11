@@ -6,9 +6,8 @@ import {
   useNavigate,
 } from "react-router-dom";
 import Home from "./Routes/Home";
-import TGB from "./Routes/TGB";
-import HIM from "./Routes/HIM";
 import About from "./Routes/About";
+import Games from "./Routes/Games";
 
 const RedirectComponent = () => {
   const navigate = useNavigate();
@@ -28,8 +27,7 @@ function App() {
         <Route path="*" element={<RedirectComponent />} />
         <Route path="/" element={<Home />} />
         <Route path="/About" element={<About />} />
-        <Route path="/Games/TGB" element={<TGB />} />
-        <Route path="/Games/HIM" element={<HIM />} />
+        <Route path="/Games" element={<Games />} />
       </Routes>
     </Router>
   );

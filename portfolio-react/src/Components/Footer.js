@@ -25,9 +25,8 @@ function Footer() {
       <div className={styles.links}>
         <span>플레이 영상 : </span>
         {GameLinks.map((link) => (
-          <span key={link.idx}>
+          <span key={link.idx} className={styles.videolink}>
             <a href={link.img_href}>{link.text}</a>
-            {link.idx >= GameLinks.length - 1 ? "" : <span>, </span>}
           </span>
         ))}
       </div>

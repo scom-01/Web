@@ -2,12 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import styles from "./About.module.css";
-import "swiper/swiper.min.css";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/autoplay";
-import "swiper/css/scrollbar";
 
 import Nav from "../Components/Nav";
 import Footer from "../Components/Footer";
@@ -42,6 +36,7 @@ function About() {
     };
     window.addEventListener("scroll", handleShowBtn);
     return () => {
+      scrollToTop();
       window.removeEventListener("scroll", handleShowBtn);
     };
   }, [gameId]);
@@ -72,10 +67,12 @@ function About() {
         <div className={styles.go_top_wrapper}>
           <section className={styles.subpage_container}>
             <p className={styles.section_title}>계기</p>
-            <img
-              className={styles.section_img}
-              src={imageData.Unity_Img.imageUrl}
-            />
+            <div className={styles.subtitle}>
+              <img
+                className={styles.section_img}
+                src={imageData.Unity_Img.imageUrl}
+              />
+            </div>
             <p className={styles.main_content}>
               대학생 시절 한 프로젝트 발표회가 열렸습니다.
               <br />

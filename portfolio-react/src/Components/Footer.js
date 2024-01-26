@@ -19,6 +19,11 @@ function Footer() {
       text: "PeaceMaker",
       img_href: linkData.PeaceMaker_Video.linkUrl,
     },
+    {
+      idx: 3,
+      text: "Github",
+      img_href: linkData.Github.linkUrl,
+    },
   ];
   return (
     <div className={styles.Footer}>

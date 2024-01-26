@@ -102,6 +102,10 @@ const linkData = {
       "https://www.dropbox.com/scl/fi/l3unq7ckizzlggw94l7jg/_.pdf?rlkey=vgewwqe4r1dixz2rsvuixldvz&dl=0",
     linkText: "자기소개서 다운로드 링크",
   },
+  Github: {
+    linkUrl: "https://github.com/scom-01",
+    linkText: "깃허브 주소",
+  },
 };
 
 export { imageData, linkData };
